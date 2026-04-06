@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # Cấu hình MySQL
+  mysql_db:
+    image: mysql:8.0
+    container_name: music_app_mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: truong2901 # Đổi lại pass root theo ý bạn
+      MYSQL_DATABASE: music_app_db # Tên DB Spring Boot sẽ kết nối
+      MYSQL_USER: spring_user # User dành riêng cho Spring Boot
+      MYSQL_PASSWORD: spring_password # Pass cho user trên
+    volumes:
+      - mysql_data:/var/lib/mysql # Lưu trữ dữ liệu DB không bị mất khi xóa container
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci # Hỗ trợ tiếng Việt có dấu
+
+  # Cấu hình phpMyAdmin để quản lý DB qua giao diện web
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: music_app_pma
+    restart: always
+    ports:
+      - "8080:80" # Truy cập qua http://localhost:8080
+    environment:
+      PMA_HOST: mysql_db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: truong2901
+    depends_on:
+      - mysql_db
+
+volumes:
+  mysql_data:

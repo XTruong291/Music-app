@@ -1,0 +1,35 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: music-app
+
+  datasource:
+      url: jdbc:mysql://localhost:3306/music_app_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      username: root
+      password: truong2901
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+  servlet:
+    multipart:
+      max-file-size: 50MB    # Kích thước tối đa cho 1 file đơn lẻ (ở đây mình set 50MB)
+      max-request-size: 50MB # Kích thước tối đa cho tổng toàn bộ request (gồm cả file nhạc + file ảnh)
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  docker:
+    compose:
+      enabled: false
+
+cloudinary:
+  cloud-name: duv6ufa6f
+  api-key: 859961882912144
+  api-secret: YqXZbQI-rhK6eFTFTaWMxFf1QFY
