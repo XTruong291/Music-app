@@ -22,10 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black text-white`}>
         {/* Vùng chứa toàn bộ ứng dụng: Cao bằng màn hình (h-screen) */}
         <div className="flex h-screen overflow-hidden">
-          {/* Thanh Menu bên trái */}
           <Sidebar />
-
-          {/* Khu vực nội dung chính thay đổi theo trang */}
           <main className="flex-1 overflow-y-auto bg-neutral-900 md:rounded-lg m-2 mb-24 md:mb-2 md:mr-2">
             {children}
           </main>
