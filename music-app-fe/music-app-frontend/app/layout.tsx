@@ -28,7 +28,7 @@ export default function RootLayout({
           </main>
         </div>
 
-        {/* Khung giữ chỗ cho Thanh phát nhạc (Player) - Cố định dưới đáy */}
+       
         <div className="fixed bottom-0 left-0 w-full h-24 bg-neutral-800/95 backdrop-blur-md border-t border-neutral-700 flex items-center justify-center z-50">
           <MusicPlayer/>
         </div>
