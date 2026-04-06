@@ -40,6 +40,7 @@ public class Playlist {
             joinColumns = @JoinColumn(name = "playlist_id"),
             inverseJoinColumns = @JoinColumn(name = "song_id")
     )
+    @Builder.Default
     private List<Song> songs = new ArrayList<>();
 
     @CreationTimestamp
