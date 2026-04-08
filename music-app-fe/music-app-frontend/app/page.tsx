@@ -65,7 +65,7 @@ export default function Home() {
   };
 
   return (
-    <div className="pb-28 p-4 md:p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6">
       <h2 className="text-3xl font-bold text-white">Bai hat moi nhat</h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
@@ -111,7 +111,9 @@ export default function Home() {
               <button
                 onClick={(event) => {
                   event.stopPropagation();
-                  setOpenMenuSongId((current) => (current === song.id ? null : song.id));
+                  setOpenMenuSongId((current) =>
+                    current === song.id ? null : song.id,
+                  );
                 }}
                 className="absolute top-2 right-2 bg-black/60 rounded-full p-2 text-white opacity-0 group-hover:opacity-100 transition"
                 type="button"
@@ -124,7 +126,9 @@ export default function Home() {
                   className="absolute top-12 right-2 w-56 rounded-md border border-neutral-700 bg-neutral-950 shadow-xl p-2 z-20"
                   onClick={(event) => event.stopPropagation()}
                 >
-                  <p className="text-xs text-neutral-400 px-2 py-1">Luu vao playlist</p>
+                  <p className="text-xs text-neutral-400 px-2 py-1">
+                    Luu vao playlist
+                  </p>
                   {playlists.length > 0 ? (
                     <div className="max-h-40 overflow-y-auto">
                       {playlists.map((playlist) => (

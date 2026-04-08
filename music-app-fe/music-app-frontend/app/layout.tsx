@@ -20,17 +20,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black text-white`}>
-        {/* Vùng chứa toàn bộ ứng dụng: Cao bằng màn hình (h-screen) */}
-        <div className="flex h-screen overflow-hidden">
+        {/* Mobile-first: flex-col | Desktop: flex-row */}
+        <div className="flex flex-col md:flex-row h-screen overflow-hidden">
+          {/* Sidebar (Adaptive: Desktop bên trái, Mobile ẩn + Bottom Nav) */}
           <Sidebar />
-          <main className="flex-1 overflow-y-auto bg-neutral-900 md:rounded-lg m-2 mb-24 md:mb-2 md:mr-2">
-            {children}
-          </main>
-        </div>
 
-       
-        <div className="fixed bottom-0 left-0 w-full h-24 bg-neutral-800/95 backdrop-blur-md border-t border-neutral-700 flex items-center justify-center z-50">
-          <MusicPlayer/>
+          {/* Main container: Content + Player */}
+          <div className="flex-1 flex flex-col overflow-hidden pb-44 md:pb-0">
+            {/* Content chính */}
+            <main className="flex-1 overflow-y-auto bg-neutral-900 p-4 md:rounded-lg md:m-2 md:mr-2">
+              {children}
+            </main>
+
+            {/* Music Player - luôn hiển thị phía trên bottom nav */}
+            <div className="fixed md:static bottom-20 md:bottom-auto left-0 md:left-auto right-0 md:right-auto h-24 w-full md:w-auto bg-neutral-800/95 backdrop-blur-md border-t border-neutral-700 flex items-center justify-center flex-shrink-0 z-40">
+              <MusicPlayer />
+            </div>
+          </div>
         </div>
       </body>
     </html>
