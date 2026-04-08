@@ -53,7 +53,8 @@ export default function LibraryPage() {
     setNewPlaylistName("");
     setIsCreateModalOpen(false);
   };
-
+ 
+ 
   return (
     <div className="text-white p-4 md:p-6 pb-32 space-y-6">
       <h1 className="text-3xl font-bold">Thu vien cua ban</h1>

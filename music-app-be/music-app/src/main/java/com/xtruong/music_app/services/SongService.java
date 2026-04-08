@@ -9,4 +9,6 @@ public interface SongService {
     List<SongResponse> getAllSongsForHome();
 
     SongResponse uploadSong(String title, MultipartFile audioFile, MultipartFile coverFile, Long uploaderId);
+
+    
 }
